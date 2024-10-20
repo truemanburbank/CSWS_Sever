@@ -1,4 +1,4 @@
-![2](https://github.com/user-attachments/assets/ee214180-ba64-4202-9ca1-9f801d24b894)# 1. 서버 등록하기
+# 1. 서버 등록하기
 
 HOST 서버를 CSWS에 등록했을 때 성공 여부를 판단하기 위해 필요한 기능입니다. HOST에 직접 ssh 원격 명령어를 날려보냄으로써 연결 여부를 확인합니다.
 
