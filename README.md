@@ -1,4 +1,4 @@
-# 1. 서버 등록하기
+![2](https://github.com/user-attachments/assets/ee214180-ba64-4202-9ca1-9f801d24b894)# 1. 서버 등록하기
 
 HOST 서버를 CSWS에 등록했을 때 성공 여부를 판단하기 위해 필요한 기능입니다. HOST에 직접 ssh 원격 명령어를 날려보냄으로써 연결 여부를 확인합니다.
 
@@ -6,13 +6,13 @@ HOST 서버를 CSWS에 등록했을 때 성공 여부를 판단하기 위해 필
 
 HOST는 CSWS에 연결을 요청한 후, wget으로 서버 자동화에 필요한 Automation 압축 파일을 다운로드 받을 수 있습니다. Automation.tar의 파일 내용은 다음과 같습니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c3798e5b-e48c-47ae-81c1-531e2abd5337/Untitled.png)
+![1](https://github.com/user-attachments/assets/8b7091ea-05ac-4495-afe1-aed0ef6c214e)
 
 [Automation.tar와 그 안에 존재하는 파일들]
 
 ### id_rsa.pub
 
-CSWS의 공개키입니다. HOST가 Automation.tar의 압축을 풀고 [ServerAutomation.sh](http://ServerAutomation.sh) 파일을 실행할 경우, id_rsa.pub이 HOST의 authorized_keys에 등록되어 CSWS와 HOST의 ssh 연결을 가능하게 합니다.
+CSWS의 공개키입니다. HOST가 Automation.tar의 압축을 풀고 ServerAutomation.sh 파일을 실행할 경우, id_rsa.pub이 HOST의 authorized_keys에 등록되어 CSWS와 HOST의 ssh 연결을 가능하게 합니다.
 
 ### logo.txt
 
@@ -48,9 +48,10 @@ HOST는 해당 쉘을 실행하여 컴퓨터를 서버로 자동화할 수 있�
 
 사용자는 CSWS에서 발급받은 개인키를 통해 HOST의 컨테이너에 접속할 수 있습니다. 그러나 기존 도커 이미지를 실행시킨 도커 컨테이너로는 개인키를 가지고 바로 접속하기가 불가능하므로 CSWS만을 위한 도커파일을 제작하였습니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5015719a-487d-4abb-929f-0d4db51a04e9/Untitled.png)
+![2](https://github.com/user-attachments/assets/c0bbbc16-11c2-4530-95c2-14dfb7ce4602)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20ce62cb-6dc9-4486-82b6-3f1850f191eb/Untitled.png)
+![3](https://github.com/user-attachments/assets/00202151-73d9-4c87-b843-b3833297581e)
+
 
 ### 도커 파일의 내용(jamesclerkmaxwell/csws_ubuntu:0.71, jamesclerkmaxwell/csws_centos:0.71)
 
@@ -147,4 +148,5 @@ HOST는 해당 쉘을 실행하여 컴퓨터를 서버로 자동화할 수 있�
 | H_SendPublickey.sh | CSWS로부터 전달받은 사용자의 공개키를 호스트에 존재하는 사용자의 컨테이너로 보내 authorized_keys에 등록합니다. |
 | --- | --- |
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4282896-20b3-40a2-8a8f-a0cc080aa91a/Untitled.png)
+![4](https://github.com/user-attachments/assets/8eb5c342-2b1e-447b-9a31-cb35c9d710ea)
+
