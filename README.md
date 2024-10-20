@@ -12,7 +12,7 @@ HOST는 CSWS에 연결을 요청한 후, wget으로 서버 자동화에 필요�
 
 ### id_rsa.pub
 
-CSWS의 공개키입니다. HOST가 Automation.tar의 압축을 풀고 ServerAutomation.sh 파일을 실행할 경우, id_rsa.pub이 HOST의 authorized_keys에 등록되어 CSWS와 HOST의 ssh 연결을 가능하게 합니다.
+CSWS의 공개키입니다. HOST가 Automation.tar의 압축을 풀고 [ServerAutomation.sh](http://ServerAutomation.sh) 파일을 실행할 경우, id_rsa.pub이 HOST의 authorized_keys에 등록되어 CSWS와 HOST의 ssh 연결을 가능하게 합니다.
 
 ### logo.txt
 
@@ -81,17 +81,17 @@ HOST는 해당 쉘을 실행하여 컴퓨터를 서버로 자동화할 수 있�
 | RestartContainer.sh | 도커 컨테이너를 재시작하는 쉘을 원격으로 실행합니다. |
 | StartContainer.sh | 도커 컨테이너를 시작하는 쉘을 원격으로 실행합니다. |
 | StopContainer.sh | 도커 컨테이너를 정지하는 쉘을 원격으로 실행합니다. |
-2. 인바운드 규칙 편집 쉘
+1. 인바운드 규칙 편집 쉘
 
 | AddInbound.sh | 도커 컨테이너의 인바운드 규칙을 추가하는 쉘을 원격으로 실행합니다. |
 | --- | --- |
 | DeleteInbound.sh | 도커 컨테이너의 인바운드 규칙을 삭제하는 쉘을 원격으로 실행합니다. |
-3. 도메인 적용 쉘
+1. 도메인 적용 쉘
 
 | AddNginx.sh | 도메인 적용을 위해 Nginx config 파일을 추가하는 쉘을 원격으로 실행합니다. |
 | --- | --- |
 | DeleteNginx.sh | 도메인 적용 해제를 위해 Nginx config 파일을 삭제하는 쉘을 원격으로 실행합니다. |
-4. 출력 
+1. 출력 
 - 컨테이너 목록
 
 | PrintStatusforManager.sh | 해당 서버의 모든 컨테이너 목록을 출력합니다. 관리자 권한으로만 실행 가능합니다. |
@@ -100,17 +100,15 @@ HOST는 해당 쉘을 실행하여 컴퓨터를 서버로 자동화할 수 있�
 - 서버 자원 사용량, 컨테이너 자원 사용량 출력
 
 | CheckContainerResource.sh | 컨테이너의 자원 사용량을 확인합니다. 
-| --- | --- |
 호스트에 컨테이너의 자원 사용량을 확인하는 원격 명령어를 보낸 후 해당 내용이 적힌 파일을 CSWS로 가져옵니다. |
-
-| CheckServerResource.sh | 서버의 자원 사용량을 확인합니다.
 | --- | --- |
+| CheckServerResource.sh | 서버의 자원 사용량을 확인합니다.
 호스트 전체의 자원 사용량을 확인하는 원격 명령어를 보낸 후 해당 내용이 적힌 파일을 CSWS로 가져옵니다. |
-5. 연결 확인 쉘
+1. 연결 확인 쉘
 
 | IsConnected.sh | 첫 연결 시, 호스트에 ssh 원격 명령어를 보내 호스트와 CSWS 사이 원격 명령어가 전달 가능한지 확인합니다. |
 | --- | --- |
-6. SSH 키페어 관련 쉘
+1. SSH 키페어 관련 쉘
 
 | CreateKeypairs.sh | 인스턴스(도커 컨테이너)를 생성하기 전 키페어를 생성하는 쉘입니다.  개인키의 형식은 pem입니다. 개인키는 사용자에게 보내집니다. |
 | --- | --- |
@@ -121,34 +119,34 @@ HOST는 해당 쉘을 실행하여 컴퓨터를 서버로 자동화할 수 있�
 호스트 쉘은 교수자의 컴퓨터 안에 존재하는 쉘입니다. 사용자가 홈페이지 조작을 통해 CSWS에 명령을 보내면 CSWS가 호스트 쉘을 원격으로 실행시킵니다.
 
 1. 인스턴스 제어 쉘(생성, 시작, 중지, 재부팅, 종료)
-| H_CreateContainer.sh | 인수를 입력받아 컨테이너를 생성해 실행시킵니다.
-| --- | --- |
+
+| H_CreateContainer.sh | 인수를 입력받아 컨테이너를 생성해 실행시킵니다. 
 조작할 수 있는 변수는 호스트 포트, 컨테이너 포트, 컨테이너를 실행시키는 유저 이름, 유저 코드, 컨테이너 용량, 실행시킬 csws의 이미지입니다.
 사용자가 ssh로 접속하기 위해 컨테이너와 이어지는 호스트의 포트도 엽니다. |
+| --- | --- |
 | H_RemoveContainer.sh | 컨테이너 이름을 입력받아 해당 컨테이너를 삭제합니다. 이때, 컨테이너가 중지되어 있지 않아도 강제로 삭제합니다. |
 | H_RestartContainer.sh | 컨테이너 이름을 입력받아 해당 컨테이너를 재시작합니다. |
 | H_StartContainer.sh | 컨테이너 이름을 입력받아 해당 컨테이너를 시작합니다. |
 | H_StopContainer.sh | 컨테이너 이름을 입력받아 해당 컨테이너를 중지합니다. |
+1. 인바운드 규칙 편집 쉘
 
-3. 인바운드 규칙 편집 쉘
 | H_AddInbound.sh | 사용자가 추가한 인바운드 규칙을 토대로 호스트의 포트를 엽니다. 그리고 도커 컨테이너를 커밋한 후 컨테이너의 포트를 추가하여 다시 실행시킵니다. |
 | --- | --- |
 | H_DeleteInbound.sh | 사용자가 삭제한 인바운드 규칙을 토대로 호스트의 포트를 닫습니다. 그리고 도커 컨테이너를 커밋한 후 컨테이너의 포트를 삭제하여 다시 실행시킵니다. |
+1. 도메인 적용 쉘
 
-5. 도메인 적용 쉘
 | H_AddNginx.sh | 사용자가 적용한 도메인을 컨테이너와 연결시키기 위해 호스트의 Nginx config 파일을 생성합니다. |
 | --- | --- |
 | H_DeleteNginx.sh | 호스트 내부의 Nginx config 파일을 삭제하여 사용자가 등록한 도메인을 삭제합니다. |
+1. 출력 
 
-7. 출력
 | H_PrintStatusforManager.sh | 현재 호스트 상에 존재하는 도커 컨테이너 목록을 모두 출력합니다. |
 | --- | --- |
 | H_PrintStatusforUser.sh | 현재 호스트 상에 존재하는 특정 유저의 컨테이너 목록을 모두 출력합니다. |
+1. SSH 키페어 관련 쉘
 
-9. SSH 키페어 관련 쉘
 | H_SendPublickey.sh | CSWS로부터 전달받은 사용자의 공개키를 호스트에 존재하는 사용자의 컨테이너로 보내 authorized_keys에 등록합니다. |
 | --- | --- |
-
 
 ![4](https://github.com/user-attachments/assets/8eb5c342-2b1e-447b-9a31-cb35c9d710ea)
 
